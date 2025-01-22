@@ -6,6 +6,7 @@ import { config } from './config/index.js'; // Cambia a import y agrega .js
 
 const PORT = config.PORT;
 
+
 const main = async () => {
     const adapterFlow = templates;
     let adapterProvider;
@@ -24,7 +25,13 @@ const main = async () => {
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
-    });
+    },
+    {
+        globalState: {
+            encendido: true,
+        }
+    }
+);
 
     httpServer(+PORT);
 };

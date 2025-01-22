@@ -10,6 +10,8 @@ const providerMeta = createProvider(MetaProvider, {
     version: config.version,
 });
 
-const providerBaileys = createProvider(BaileysProvider);
+const providerBaileys = createProvider(BaileysProvider, {
+    writeMyself: 'both'
+});
 
 export { providerMeta, providerBaileys };
