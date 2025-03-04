@@ -42,13 +42,17 @@ const mainFlow = addKeyword(EVENTS.WELCOME)
             }
 
             // Verifica si el mensaje proviene de un grupo
-            const isMessageFromGroup = !!ctx.message.extendedTextMessage;
+            //const isMessageFromGroup = !!ctx.message.extendedTextMessage;
 
+            /*
             if (isMessageFromGroup) {
                 return endFlow();
             } else {
+            */
                 return gotoFlow(DetectIntention);
+            /*
             }
+            */
         } catch (error) {
             // Registrar el error y continuar la ejecución
             await logError(error, ctx, 'mainFlow');

@@ -8,6 +8,7 @@ import path from "path";
 import fs from "fs";
 import { logError } from "../utils/utils.js"; // Importamos el manejador de errores
 import { gestionarContacto } from "../services/contactosFlow.js";
+import { delayResponse } from "../utils/delay.js";
 
 // Ruta y lectura del archivo de prompts
 const pathConsultas = path.join(process.cwd(), "assets/prompts", "prompt.txt");
@@ -83,6 +84,9 @@ const voiceFlow = addKeyword(EVENTS.VOICE_NOTE)
         } catch (removeError) {
             logError(removeError);
         }
+
+        // Agregar un retraso aleatorio entre 10 y 30 segundos antes de responder
+        await delayResponse(10000, 30000);
 
         // Finaliza el flujo con la respuesta generada
         return ctxFn.endFlow(response);

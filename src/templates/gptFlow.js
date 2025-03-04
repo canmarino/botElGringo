@@ -3,31 +3,28 @@ import { gestionarContacto } from '../services/contactosFlow.js';
 import { chat } from '../services/chatgpt.js';
 import path from "path";
 import fs from "fs";
-import { logError } from '../utils/utils.js'; // Importar el manejador de errores centralizado
-//import { registrarConversacion } from '../services/contactosFlow.js'
+import { logError } from '../utils/utils.js';
+import { delayResponse } from '../utils/delay.js';
 
 // Ruta al archivo prompt.txt
 const pathConsultas = path.join(process.cwd(), "assets/prompts", "prompt.txt");
 
 const obtenerDiaYHora = () => {
     const ahora = new Date();
-    const diaActual = ahora.toLocaleDateString("es-ES", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    const horaActual = ahora.toLocaleTimeString("es-ES", { hour: '2-digit', minute: '2-digit' });
-    return { diaActual, horaActual };
+    return {
+        diaActual: ahora.toLocaleDateString("es-ES", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+        horaActual: ahora.toLocaleTimeString("es-ES", { hour: '2-digit', minute: '2-digit' }),
+    };
 };
-
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const gptFlow = addKeyword(EVENTS.ACTION)
     .addAction(async (ctx, ctxFn) => {
         try {
-
-            // Llamar a la función de gestión de contactos antes de GPT
+            // Manejo de contactos antes de GPT
             await gestionarContacto(ctx, ctxFn, ctxFn.state, true, null);
-
-            // Verificar si el bot debe detenerse para este usuario
-            const botOffForThisUser = ctxFn.state.get('botOffForThisUser');
-            if (botOffForThisUser) {
+            
+            // Verificar si el bot está apagado para este usuario
+            if (ctxFn.state.get('botOffForThisUser')) {
                 await ctxFn.state.update({ botOffForThisUser: false });
                 return ctxFn.endFlow();
             }
@@ -37,35 +34,35 @@ const gptFlow = addKeyword(EVENTS.ACTION)
             try {
                 promptConsultas = fs.readFileSync(pathConsultas, "utf8");
             } catch (err) {
-                throw new Error(`No se pudo leer el archivo prompt.txt: ${err.message}`);
+                logError(err);
+                return ctxFn.endFlow("Lo siento, hubo un error al procesar tu consulta.");
             }
 
-            // Obtener día y hora actuales
+            // Obtener y reemplazar variables en el prompt
             const { diaActual, horaActual } = obtenerDiaYHora();
-
-            // Reemplazar las variables en el prompt
             promptConsultas = promptConsultas
                 .replace(/\[DÍA ACTUAL\]/g, diaActual)
                 .replace(/\[HORA ACTUAL\]/g, horaActual);
 
-            // Llamar al modelo GPT con el prompt actualizado
+            // Llamar a GPT con el prompt actualizado
             let response;
             try {
                 response = await chat(promptConsultas, ctx.body);
             } catch (err) {
-                throw new Error(`No se pudo obtener respuesta del modelo GPT: ${err.message}`);
+                logError(err);
+                return ctxFn.endFlow("No pude procesar tu consulta en este momento.");
             }
-
-            // Introducir un delay antes de finalizar el flujo
-            await delay(500);
-
+            
+            // Manejo de contacto final con la respuesta
             await gestionarContacto(ctx, ctxFn, ctxFn.state, true, response);
+            
+            // Introducir un retraso aleatorio antes de responder
+            await delayResponse(10000, 30000);
 
-            // Finalizar el flujo con la respuesta
             return ctxFn.endFlow(response);
         } catch (error) {
-            //const errorLog = `Error en el flujo GPT:\nMessage: ${error.message}\nStack: ${error.stack}\nContext: ${JSON.stringify(ctx)}\n\n`;
-            logError(error); // Registrar el error utilizando el manejador centralizado
+            logError(error);
+            return ctxFn.endFlow("Ocurrió un error inesperado. Intenta nuevamente más tarde.");
         }
     });
 

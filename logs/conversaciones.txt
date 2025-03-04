@@ -1,6 +1,15 @@
-2025-01-22 12:50:38: {"usuario":"5491159553848","mensajeUsuario":"Buen día, tendrá lista de precios de bebidas? Gracias","respuestaBot":null,"fecha":"2025-01-22T15:50:38.517Z"}
-2025-01-22 12:50:41: {"usuario":"5491159553848","mensajeUsuario":"Buen día, tendrá lista de precios de bebidas? Gracias","respuestaBot":"¡Hola! Lamentablemente no dispongo de la lista de precios actualizada de bebidas. Te recomendaría contactarnos por teléfono al 1142728896 o visitar nuestro local para obtener la información detallada. ¡Gracias por tu consulta! 🥤😊","fecha":"2025-01-22T15:50:41.206Z"}
-2025-01-22 13:27:09: {"usuario":"5492645414530","mensajeUsuario":"Tiene promo de fiambre con el pan de miga","respuestaBot":null,"fecha":"2025-01-22T16:27:09.398Z"}
-2025-01-22 13:27:11: {"usuario":"5492645414530","mensajeUsuario":"Tiene promo de fiambre con el pan de miga","respuestaBot":"¡Hola! En este momento no tengo información sobre promociones específicas. Te sugeriría que nos llames al 1142728896 o nos visites en nuestra tienda para conocer si tenemos alguna promoción vigente de fiambres con pan de miga. ¡Gracias por tu interés! 🥪🛒","fecha":"2025-01-22T16:27:11.237Z"}
-2025-01-22 13:27:46: {"usuario":"5492645414530","mensajeUsuario":"A la tarde ah qué hora abre","respuestaBot":null,"fecha":"2025-01-22T16:27:46.450Z"}
-2025-01-22 13:27:47: {"usuario":"5492645414530","mensajeUsuario":"A la tarde ah qué hora abre","respuestaBot":"¡Hola! Hoy miércoles abrimos a las 7:00 y cerramos a las 17:00. ¡Estamos a tu disposición durante todo el día! ¿Puedo ayudarte con algo más? 😉🕖","fecha":"2025-01-22T16:27:47.825Z"}
+03-04_13-46-15_078: {"usuario":"5491151852902","mensajeUsuario":"Hola","respuestaBot":"Hola, Alberto Marino\n¿En qué puedo ayudarte?","fecha":"2025-03-04T16:48:41.692Z"}
+03-04_13-55-41_534: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T16:56:01.337Z"}
+03-04_19-10-04_817: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:10:39.488Z"}
+03-04_19-15-50_421: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:16:27.582Z"}
+03-04_19-25-53_590: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:26:15.198Z"}
+03-04_19-30-54_119: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:31:35.360Z"}
+03-04_19-30-54_119: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:33:54.605Z"}
+03-04_19-36-41_522: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:37:03.998Z"}
+03-04_19-42-34_783: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:43:03.759Z"}
+03-04_19-48-36_732: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:48:58.660Z"}
+03-04_19-53-37_115: {"usuario":"5491127474646","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:54:24.220Z"}
+03-04_19-57-48_766: {"usuario":"5491144202236","mensajeUsuario":"imagen","respuestaBot":"","fecha":"2025-03-04T22:58:11.705Z"}
+03-04_19-57-48_766: {"usuario":"5491151852902","mensajeUsuario":"Mándame cremoso","respuestaBot":"","fecha":"2025-03-04T22:59:00.142Z"}
+03-04_19-57-48_766: {"usuario":"5491151852902","mensajeUsuario":"Mándame cremoso","respuestaBot":"Lo siento, por este medio no realizamos pedidos. ¡Pero puedes visitarnos en Ruta de La Tradición 1736, Luis Guillón!","fecha":"2025-03-04T22:59:01.051Z"}
+03-04_19-57-48_766: {"usuario":"5491127474646","mensajeUsuario":"mandame cremoso puntaaaaaa!!!","respuestaBot":"","fecha":"2025-03-04T22:59:59.965Z"}

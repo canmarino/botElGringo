@@ -6,14 +6,15 @@
   "type": "module",
   "scripts": {
     "lint": "eslint . --no-ignore",
-    "dev": "npm run lint && nodemon ./src/app.js",
-    "start": "node ./src/app.js"
+    "dev": "npm run lint && nodemon ./src/app.js --env-file=.env",
+    "start": "node ./src/app.js --env-file=.env"
   },
   "keywords": [],
   "dependencies": {
     "@adiwajshing/baileys": "^5.0.0",
     "@builderbot-plugins/langchain": "1.0.0-alpha.0",
     "@builderbot/bot": "1.2.2",
+    "@builderbot/database-mongo": "^1.2.5",
     "@builderbot/provider-baileys": "1.2.2",
     "@builderbot/provider-meta": "^1.2.2",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

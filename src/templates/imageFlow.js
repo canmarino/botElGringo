@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { format as formatDate } from 'date-fns';
 import { logError } from '../utils/utils.js'; // Importa el manejador de errores centralizado
+import { gestionarContacto } from '../services/contactosFlow.js'; // Importa la función de gestión de contactos
 
 const imageFlow = addKeyword(EVENTS.MEDIA).addAction(async (ctx, ctxFn) => {
     try {
@@ -27,6 +28,7 @@ const imageFlow = addKeyword(EVENTS.MEDIA).addAction(async (ctx, ctxFn) => {
 
             const nuevaRuta = path.join(destinationDir, fileName);
 
+            
             // Mover el archivo procesado
             fs.rename(tempFilePath, nuevaRuta, (err) => {
                 if (err) {
@@ -35,6 +37,10 @@ const imageFlow = addKeyword(EVENTS.MEDIA).addAction(async (ctx, ctxFn) => {
                     console.log('Archivo movido correctamente a:', nuevaRuta);
                 }
             });
+            if (!ret.data.text.toLowerCase().includes('transferencia')) {
+                 // Llamar a la función de gestión de contactos antes de GPT
+                await gestionarContacto(ctx, ctxFn, nuevaRuta, true, null);
+            }
         } finally {
             // Liberar recursos del worker
             await worker.terminate();
