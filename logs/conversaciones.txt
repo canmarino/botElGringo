@@ -13,3 +13,4 @@
 03-04_19-57-48_766: {"usuario":"5491151852902","mensajeUsuario":"Mándame cremoso","respuestaBot":"","fecha":"2025-03-04T22:59:00.142Z"}
 03-04_19-57-48_766: {"usuario":"5491151852902","mensajeUsuario":"Mándame cremoso","respuestaBot":"Lo siento, por este medio no realizamos pedidos. ¡Pero puedes visitarnos en Ruta de La Tradición 1736, Luis Guillón!","fecha":"2025-03-04T22:59:01.051Z"}
 03-04_19-57-48_766: {"usuario":"5491127474646","mensajeUsuario":"mandame cremoso puntaaaaaa!!!","respuestaBot":"","fecha":"2025-03-04T22:59:59.965Z"}
+03-04_21-01-21_780: {"usuario":"5491127474646","mensajeUsuario":"pdf","respuestaBot":"","fecha":"2025-03-05T00:01:39.665Z"}

@@ -27,7 +27,7 @@ export async function generarNotificacion(grupo, mensajeUsuario, nombre, numero,
         await fs.mkdir(folderPath, { recursive: true });
 
         // Procesar imagen si existe
-        if (imagen) {
+        if (imagen === 'imagen') {
             const imageFileName = `${numero}_${nombre}_${dateFile}.jpeg`;
             const imagePath = path.join(folderPath, imageFileName);
 
@@ -42,8 +42,14 @@ export async function generarNotificacion(grupo, mensajeUsuario, nombre, numero,
                 console.error(`❌ Error al mover la imagen: ${error.message}`);
                 throw new Error(`Error al mover la imagen: ${error.message} (Ruta: ${mensajeUsuario})`);
             }
+        } else if (imagen === 'pdf') {
+            // Guardar el archivo PDF en la carpeta
+            const pdfFileName = `${numero}_${nombre}_${dateFile}.pdf`;
+            const pdfPath = path.join(folderPath, pdfFileName);
+            await fs.rename(mensajeUsuario, pdfPath);
+            console.log(`✅ PDF movido correctamente a: ${pdfPath}`);
+
         } else {
-            
             // Guardar el mensaje en un archivo de texto
             const fileName = `${numero}_${nombre}_${dateFile}.txt`;
             const filePath = path.join(folderPath, fileName);

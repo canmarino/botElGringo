@@ -7,6 +7,7 @@ import { voiceFlow } from './voiceFlow.js';
 import { goodbyeFlow } from './goodbye.js';
 import { imageFlow } from './imageFlow.js';
 import { pdfFlow } from './pdfFlow.js';
+import { atencionPersonalizadaFlow } from './atencionPersonalizadaFlow.js';
 //import { flowOnOff } from './mainFlow.js';
 
 export default createFlow([
@@ -18,5 +19,6 @@ export default createFlow([
     DetectIntention,
     voiceFlow,
     stopFlow,
-    goodbyeFlow
+    goodbyeFlow,
+    atencionPersonalizadaFlow
 ]);

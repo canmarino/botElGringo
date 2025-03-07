@@ -34,6 +34,9 @@ export const gestionarContacto = async (ctx, ctxFn, transcript, registrar = true
         if (ctx.body.toLowerCase().includes('media')) {
             mensajeUsuario = 'imagen';
         }
+        if (ctx.body.toLowerCase().includes('document')) {
+            mensajeUsuario = 'pdf';
+        }
 
         if (registrar) {
             const conversacion = {
@@ -58,11 +61,12 @@ export const gestionarContacto = async (ctx, ctxFn, transcript, registrar = true
 
                 if (numero === ctx.from) {
                     try {
-                        if (mensajeUsuario === 'imagen') {
-                            await generarNotificacion(grupo, transcript, nombre, numero, formattedDate, true);
+                        if (mensajeUsuario === 'imagen' || mensajeUsuario === 'pdf') {
+                            let tipo = mensajeUsuario
+                            await generarNotificacion(grupo, transcript, nombre, numero, formattedDate, tipo);
                         } else {
                             await generarNotificacion(grupo, mensajeUsuario, nombre, numero, formattedDate);
-                        };
+                        }
 
                         encontrado = true;
                         break;

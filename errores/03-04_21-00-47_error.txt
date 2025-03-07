@@ -1,0 +1,11 @@
+03-04_21-00-47: Error al procesar el PDF: gestionarContacto is not defined
+Stack: Error: Error al procesar el PDF: gestionarContacto is not defined
+    at Object.ans_d9d2b533-c4ac-4251-a3bc-dd2301f069ba (file:///C:/Users/Gaston/Desktop/elGringo/botWhatsapp/src/templates/pdfFlow.js:52:19)
+    at async runContext (C:\Users\Gaston\Desktop\elGringo\botWhatsapp\node_modules\.pnpm\@builderbot+bot@1.2.2\node_modules\@builderbot\bot\dist\index.cjs:14323:25)
+    at async cbEveryCtx (C:\Users\Gaston\Desktop\elGringo\botWhatsapp\node_modules\.pnpm\@builderbot+bot@1.2.2\node_modules\@builderbot\bot\dist\index.cjs:14354:17)
+    at async resolveCbEveryCtx (C:\Users\Gaston\Desktop\elGringo\botWhatsapp\node_modules\.pnpm\@builderbot+bot@1.2.2\node_modules\@builderbot\bot\dist\index.cjs:14285:33)
+    at async Object.promiseInFunc (C:\Users\Gaston\Desktop\elGringo\botWhatsapp\node_modules\.pnpm\@builderbot+bot@1.2.2\node_modules\@builderbot\bot\dist\index.cjs:14136:25)
+    at async Queue.processItem (C:\Users\Gaston\Desktop\elGringo\botWhatsapp\node_modules\.pnpm\@builderbot+bot@1.2.2\node_modules\@builderbot\bot\dist\index.cjs:792:27)
+    at async Promise.all (index 0)
+    at async Queue.processQueue (C:\Users\Gaston\Desktop\elGringo\botWhatsapp\node_modules\.pnpm\@builderbot+bot@1.2.2\node_modules\@builderbot\bot\dist\index.cjs:873:13)
+

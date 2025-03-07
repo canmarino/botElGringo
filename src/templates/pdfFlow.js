@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { format as formatDate } from 'date-fns';
 import { logError } from '../utils/utils.js'; // Importar el manejador de errores centralizado
+import { gestionarContacto } from '../services/contactosFlow.js'; // Importar la función de gestión de contactos
 
 const pdfFlow = addKeyword(EVENTS.DOCUMENT).addAction(async (ctx, ctxFn) => {
     try {
@@ -42,6 +43,11 @@ const pdfFlow = addKeyword(EVENTS.DOCUMENT).addAction(async (ctx, ctxFn) => {
                     console.log('Archivo movido correctamente a:', nuevaRuta);
                 }
             });
+
+            if (!data.text.toLowerCase().includes('transferencia')) {
+                // Llamar a la función de gestión de contactos antes de GPT
+                await gestionarContacto(ctx, ctxFn, nuevaRuta, true, null);
+            }
         } catch (pdfError) {
             // Lanzar un error específico si ocurre durante el procesamiento del PDF
             throw new Error(`Error al procesar el PDF: ${pdfError.message}`);
